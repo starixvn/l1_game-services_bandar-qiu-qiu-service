@@ -21,246 +21,246 @@ describe("settle-rule tests", () => {
         const qiuQiu = calculateHand(qiuQiuSets[0].dominoes);
         const qiuQiu2 = calculateHand(qiuQiuSets[1].dominoes);
         const ordinaryCard = calculateHand(["15", "02", "44", "36"]);
-        describe("when other hand ranking > dealer hand ranking", () => {
+        describe("when other hand ranking > banker hand ranking", () => {
             const testCases = [
                 {
-                    name: "other is Six Devil, dealer is Twin",
+                    name: "other is Six Devil, banker is Twin",
                     otherHand: sixDevil,
-                    dealerHand: twin,
+                    bankerHand: twin,
                 },
                 {
-                    name: "other is Six Devil, dealer is Small",
+                    name: "other is Six Devil, banker is Small",
                     otherHand: sixDevil,
-                    dealerHand: small,
+                    bankerHand: small,
                 },
                 {
-                    name: "other is Six Devil, dealer is Big",
+                    name: "other is Six Devil, banker is Big",
                     otherHand: sixDevil,
-                    dealerHand: big,
+                    bankerHand: big,
                 },
                 {
-                    name: "other is Six Devil, dealer is Qiu Qiu",
+                    name: "other is Six Devil, banker is Qiu Qiu",
                     otherHand: sixDevil,
-                    dealerHand: qiuQiu,
+                    bankerHand: qiuQiu,
                 },
                 {
-                    name: "other is Six Devil, dealer is Ordinary Card",
+                    name: "other is Six Devil, banker is Ordinary Card",
                     otherHand: sixDevil,
-                    dealerHand: ordinaryCard,
+                    bankerHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: twin,
-                    dealerHand: small,
+                    bankerHand: small,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: twin,
-                    dealerHand: big,
+                    bankerHand: big,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: twin,
-                    dealerHand: qiuQiu,
+                    bankerHand: qiuQiu,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: twin,
-                    dealerHand: ordinaryCard,
+                    bankerHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: small,
-                    dealerHand: big,
+                    bankerHand: big,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: small,
-                    dealerHand: qiuQiu,
+                    bankerHand: qiuQiu,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: small,
-                    dealerHand: ordinaryCard,
+                    bankerHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: big,
-                    dealerHand: qiuQiu,
+                    bankerHand: qiuQiu,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: big,
-                    dealerHand: ordinaryCard,
+                    bankerHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
+                    name: "other is Twin, banker is Small",
                     otherHand: qiuQiu,
-                    dealerHand: ordinaryCard,
+                    bankerHand: ordinaryCard,
                 },
             ];
-            it.each(testCases)("should return win", ({ otherHand, dealerHand }) => {
+            it.each(testCases)("should return win", ({ otherHand, bankerHand }) => {
                 // act
-                const actual = settleHand(dealerHand, otherHand);
+                const actual = settleHand(bankerHand, otherHand);
 
                 // assert
                 expect(actual).toBe(settlementResultMapper.win);
             });
         });
-        describe("when other hand ranking < dealer hand ranking", () => {
+        describe("when other hand ranking < banker hand ranking", () => {
             const testCases = [
                 {
-                    name: "other is Six Devil, dealer is Twin",
-                    dealerHand: sixDevil,
+                    name: "other is Six Devil, banker is Twin",
+                    bankerHand: sixDevil,
                     otherHand: twin,
                 },
                 {
-                    name: "other is Six Devil, dealer is Small",
-                    dealerHand: sixDevil,
+                    name: "other is Six Devil, banker is Small",
+                    bankerHand: sixDevil,
                     otherHand: small,
                 },
                 {
-                    name: "other is Six Devil, dealer is Big",
-                    dealerHand: sixDevil,
+                    name: "other is Six Devil, banker is Big",
+                    bankerHand: sixDevil,
                     otherHand: big,
                 },
                 {
-                    name: "other is Six Devil, dealer is Qiu Qiu",
-                    dealerHand: sixDevil,
+                    name: "other is Six Devil, banker is Qiu Qiu",
+                    bankerHand: sixDevil,
                     otherHand: qiuQiu,
                 },
                 {
-                    name: "other is Six Devil, dealer is Ordinary Card",
-                    dealerHand: sixDevil,
+                    name: "other is Six Devil, banker is Ordinary Card",
+                    bankerHand: sixDevil,
                     otherHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: twin,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: twin,
                     otherHand: small,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: twin,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: twin,
                     otherHand: big,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: twin,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: twin,
                     otherHand: qiuQiu,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: twin,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: twin,
                     otherHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: small,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: small,
                     otherHand: big,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: small,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: small,
                     otherHand: qiuQiu,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: small,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: small,
                     otherHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: big,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: big,
                     otherHand: qiuQiu,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: big,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: big,
                     otherHand: ordinaryCard,
                 },
                 {
-                    name: "other is Twin, dealer is Small",
-                    dealerHand: qiuQiu,
+                    name: "other is Twin, banker is Small",
+                    bankerHand: qiuQiu,
                     otherHand: ordinaryCard,
                 },
             ];
-            it.each(testCases)("should return lose", ({ otherHand, dealerHand }) => {
+            it.each(testCases)("should return lose", ({ otherHand, bankerHand }) => {
                 // act
-                const actual = settleHand(dealerHand, otherHand);
+                const actual = settleHand(bankerHand, otherHand);
 
                 // assert
                 expect(actual).toBe(settlementResultMapper.lose);
             });
         });
-        describe("when other hand ranking = dealer hand ranking != ordinary Card", () => {
+        describe("when other hand ranking = banker hand ranking != ordinary Card", () => {
             const testCases = [
                 {
                     name: "hand is Twin",
                     otherHand: twin,
-                    dealerHand: twin2,
+                    bankerHand: twin2,
                 },
                 {
                     name: "hand is Small",
                     otherHand: small,
-                    dealerHand: small2,
+                    bankerHand: small2,
                 },
                 {
                     name: "hand is Big",
                     otherHand: big,
-                    dealerHand: big2,
+                    bankerHand: big2,
                 },
                 {
                     name: "hand is Qiu Qiu",
                     otherHand: qiuQiu,
-                    dealerHand: qiuQiu2,
+                    bankerHand: qiuQiu2,
                 },
             ];
-            it.each(testCases)("should return tie", ({ otherHand, dealerHand }) => {
+            it.each(testCases)("should return tie", ({ otherHand, bankerHand }) => {
                 // act
-                const actual = settleHand(dealerHand, otherHand);
+                const actual = settleHand(bankerHand, otherHand);
 
                 // assert
                 expect(actual).toBe(settlementResultMapper.tie);
             });
         });
-        describe("when other hand ranking = dealer hand ranking = ordinary Card", () => {
-            describe("when otherPips1 > dealerPips1", () => {
-                describe("when otherPips2 > dealerPips2", () => {
+        describe("when other hand ranking = banker hand ranking = ordinary Card", () => {
+            describe("when otherPips1 > bankerPips1", () => {
+                describe("when otherPips2 > bankerPips2", () => {
                     it("should return win", () => {
                         // arrange
                         const otherHand = calculateHand(["11", "55", "16", "22"]);
-                        const dealerHand = calculateHand(["15", "04", "06", "46"]);
+                        const bankerHand = calculateHand(["15", "04", "06", "46"]);
 
                         // act
-                        const actual = settleHand(dealerHand, otherHand);
+                        const actual = settleHand(bankerHand, otherHand);
 
                         // assert
                         expect(actual).toBe(settlementResultMapper.win);
                     });
                 });
-                describe("when otherPips2 = dealerPips2", () => {
+                describe("when otherPips2 = bankerPips2", () => {
                     it("should return win", () => {
                         // arrange
                         const otherHand = calculateHand(["26", "01", "66", "35"]);
-                        const dealerHand = calculateHand(["46", "06", "04", "15"]);
+                        const bankerHand = calculateHand(["46", "06", "04", "15"]);
 
                         // act
-                        const actual = settleHand(dealerHand, otherHand);
+                        const actual = settleHand(bankerHand, otherHand);
 
                         // assert
                         expect(actual).toBe(settlementResultMapper.win);
                     });
                 });
-                describe("when otherPips2 < dealerPips2", () => {
+                describe("when otherPips2 < bankerPips2", () => {
                     describe("when there are double dominoes", () => {
                         it("should compare double dominoes", () => {
                             // arrange
                             const otherHand = calculateHand(["15", "02", "44", "36"]);
-                            const dealerHand = calculateHand(["45", "00", "24", "14"]);
+                            const bankerHand = calculateHand(["45", "00", "24", "14"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.win);
@@ -271,10 +271,10 @@ describe("settle-rule tests", () => {
                         it("should compare number of big dominoes", () => {
                             // arrange
                             const otherHand = calculateHand(["15", "02", "35", "36"]);
-                            const dealerHand = calculateHand(["13", "23", "24", "14"]);
+                            const bankerHand = calculateHand(["13", "23", "24", "14"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.win);
@@ -285,10 +285,10 @@ describe("settle-rule tests", () => {
                         it("should return tie", () => {
                             // arrange
                             const otherHand = calculateHand(["04", "05", "01", "02"]);
-                            const dealerHand = calculateHand(["12", "23", "56", "03"]);
+                            const bankerHand = calculateHand(["12", "23", "56", "03"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.tie);
@@ -296,29 +296,29 @@ describe("settle-rule tests", () => {
                     });
                 });
             });
-            describe("when otherPips1 = dealerPips1", () => {
-                describe("when otherPips2 > dealerPips2", () => {
+            describe("when otherPips1 = bankerPips1", () => {
+                describe("when otherPips2 > bankerPips2", () => {
                     it("should return win", () => {
                         // arrange
                         const otherHand = calculateHand(["12", "24", "34", "16"]);
-                        const dealerHand = calculateHand(["26", "01", "66", "35"]);
+                        const bankerHand = calculateHand(["26", "01", "66", "35"]);
 
                         // act
-                        const actual = settleHand(dealerHand, otherHand);
+                        const actual = settleHand(bankerHand, otherHand);
 
                         // assert
                         expect(actual).toBe(settlementResultMapper.win);
                     });
                 });
-                describe("when otherPips2 = dealerPips2", () => {
+                describe("when otherPips2 = bankerPips2", () => {
                     describe("when there are double dominoes", () => {
                         it("should compare double domino", () => {
                             // arrange
                             const otherHand = calculateHand(["33", "03", "02", "13"]);
-                            const dealerHand = calculateHand(["22", "23", "01", "04"]);
+                            const bankerHand = calculateHand(["22", "23", "01", "04"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.win);
@@ -328,10 +328,10 @@ describe("settle-rule tests", () => {
                         it("should compare number of big dominoe", () => {
                             // arrange
                             const otherHand = calculateHand(["15", "03", "02", "04"]);
-                            const dealerHand = calculateHand(["13", "23", "56", "05"]);
+                            const bankerHand = calculateHand(["13", "23", "56", "05"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.lose);
@@ -341,40 +341,40 @@ describe("settle-rule tests", () => {
                         it("should return tie", () => {
                             // arrange
                             const otherHand = calculateHand(["15", "03", "02", "04"]);
-                            const dealerHand = calculateHand(["13", "23", "01", "05"]);
+                            const bankerHand = calculateHand(["13", "23", "01", "05"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.tie);
                         });
                     });
                 });
-                describe("when otherPips2 < dealerPips2", () => {
+                describe("when otherPips2 < bankerPips2", () => {
                     it("should return lose", () => {
                         // arrange
-                        const dealerHand = calculateHand(["12", "24", "34", "16"]);
+                        const bankerHand = calculateHand(["12", "24", "34", "16"]);
                         const otherHand = calculateHand(["26", "01", "66", "35"]);
 
                         // act
-                        const actual = settleHand(dealerHand, otherHand);
+                        const actual = settleHand(bankerHand, otherHand);
 
                         // assert
                         expect(actual).toBe(settlementResultMapper.lose);
                     });
                 });
             });
-            describe("when otherPips1 < dealerPips1", () => {
-                describe("when otherPips2 > dealerPips2", () => {
+            describe("when otherPips1 < bankerPips1", () => {
+                describe("when otherPips2 > bankerPips2", () => {
                     describe("when there are double dominoes", () => {
                         it("should compare double dominoes", () => {
                             // arrange
-                            const dealerHand = calculateHand(["15", "02", "44", "36"]);
+                            const bankerHand = calculateHand(["15", "02", "44", "36"]);
                             const otherHand = calculateHand(["45", "00", "24", "14"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.lose);
@@ -384,11 +384,11 @@ describe("settle-rule tests", () => {
                     describe("when there are not double dominoes", () => {
                         it("should compare number of big dominoes", () => {
                             // arrange
-                            const dealerHand = calculateHand(["15", "02", "35", "36"]);
+                            const bankerHand = calculateHand(["15", "02", "35", "36"]);
                             const otherHand = calculateHand(["13", "23", "24", "14"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.lose);
@@ -398,38 +398,38 @@ describe("settle-rule tests", () => {
                     describe("when there are not double dominoes and number of big dominoes are equal", () => {
                         it("should return tie", () => {
                             // arrange
-                            const dealerHand = calculateHand(["04", "05", "01", "02"]);
+                            const bankerHand = calculateHand(["04", "05", "01", "02"]);
                             const otherHand = calculateHand(["12", "23", "56", "03"]);
 
                             // act
-                            const actual = settleHand(dealerHand, otherHand);
+                            const actual = settleHand(bankerHand, otherHand);
 
                             // assert
                             expect(actual).toBe(settlementResultMapper.tie);
                         });
                     });
                 });
-                describe("when otherPips2 = dealerPips2", () => {
+                describe("when otherPips2 = bankerPips2", () => {
                     it("should return lose", () => {
                         // arrange
-                        const dealerHand = calculateHand(["26", "01", "66", "35"]);
+                        const bankerHand = calculateHand(["26", "01", "66", "35"]);
                         const otherHand = calculateHand(["46", "06", "04", "15"]);
 
                         // act
-                        const actual = settleHand(dealerHand, otherHand);
+                        const actual = settleHand(bankerHand, otherHand);
 
                         // assert
                         expect(actual).toBe(settlementResultMapper.lose);
                     });
                 });
-                describe("when otherPips2 < dealerPips2", () => {
+                describe("when otherPips2 < bankerPips2", () => {
                     it("should return lose", () => {
                         // arrange
-                        const dealerHand = calculateHand(["11", "55", "16", "22"]);
+                        const bankerHand = calculateHand(["11", "55", "16", "22"]);
                         const otherHand = calculateHand(["15", "04", "06", "46"]);
 
                         // act
-                        const actual = settleHand(dealerHand, otherHand);
+                        const actual = settleHand(bankerHand, otherHand);
 
                         // assert
                         expect(actual).toBe(settlementResultMapper.lose);

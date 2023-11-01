@@ -14,52 +14,52 @@ const getNumberOfBigDomino = (dominoes) => {
     }, 0);
 };
 
-const settleHandDominoes = (dealerHand, otherHand) => {
+const settleHandDominoes = (bankerHand, otherHand) => {
     const otherDoubleDominoValue = getMaxOfDoubleDomino(otherHand.dominoes);
-    const dealerDoubleDominoValue = getMaxOfDoubleDomino(dealerHand.dominoes);
-    if (otherDoubleDominoValue > dealerDoubleDominoValue) {
+    const bankerDoubleDominoValue = getMaxOfDoubleDomino(bankerHand.dominoes);
+    if (otherDoubleDominoValue > bankerDoubleDominoValue) {
         return settlementResultMapper.win;
     }
-    if (otherDoubleDominoValue < dealerDoubleDominoValue) {
+    if (otherDoubleDominoValue < bankerDoubleDominoValue) {
         return settlementResultMapper.lose;
     }
     const otherNumberBigDomino = getNumberOfBigDomino(otherHand.dominoes);
-    const dealerNumberBigDomino = getNumberOfBigDomino(dealerHand.dominoes);
-    if (otherNumberBigDomino > dealerNumberBigDomino) {
+    const bankerNumberBigDomino = getNumberOfBigDomino(bankerHand.dominoes);
+    if (otherNumberBigDomino > bankerNumberBigDomino) {
         return settlementResultMapper.win;
     }
-    return otherNumberBigDomino === dealerNumberBigDomino ? settlementResultMapper.tie : settlementResultMapper.lose;
+    return otherNumberBigDomino === bankerNumberBigDomino ? settlementResultMapper.tie : settlementResultMapper.lose;
 };
 
-const settleOrdinaryCardHand = (dealerHand, otherHand) => {
+const settleOrdinaryCardHand = (bankerHand, otherHand) => {
     const [otherPips1, otherPips2] = otherHand.pipsOfSet;
-    const [dealerPips1, dealerPips2] = dealerHand.pipsOfSet;
-    if (otherPips1 > dealerPips1 && otherPips2 >= dealerPips2) {
+    const [bankerPips1, bankerPips2] = bankerHand.pipsOfSet;
+    if (otherPips1 > bankerPips1 && otherPips2 >= bankerPips2) {
         return settlementResultMapper.win;
     }
-    if (otherPips1 === dealerPips1) {
-        if (otherPips2 > dealerPips2) {
+    if (otherPips1 === bankerPips1) {
+        if (otherPips2 > bankerPips2) {
             return settlementResultMapper.win;
         }
-        if (otherPips2 < dealerPips2) {
+        if (otherPips2 < bankerPips2) {
             return settlementResultMapper.lose;
         }
     }
-    if (otherPips1 < dealerPips1 && otherPips2 <= dealerPips2) {
+    if (otherPips1 < bankerPips1 && otherPips2 <= bankerPips2) {
         return settlementResultMapper.lose;
     }
-    return settleHandDominoes(dealerHand, otherHand);
+    return settleHandDominoes(bankerHand, otherHand);
 };
 
-export const settleHand = (dealerHand, otherHand) => {
-    if (otherHand.handRankingId > dealerHand.handRankingId) {
+export const settleHand = (bankerHand, otherHand) => {
+    if (otherHand.handRankingId > bankerHand.handRankingId) {
         return settlementResultMapper.win;
     }
-    if (otherHand.handRankingId < dealerHand.handRankingId) {
+    if (otherHand.handRankingId < bankerHand.handRankingId) {
         return settlementResultMapper.lose;
     }
     if (otherHand.handRankingId === handRankingId.ordinaryCard) {
-        return settleOrdinaryCardHand(dealerHand, otherHand);
+        return settleOrdinaryCardHand(bankerHand, otherHand);
     }
     return settlementResultMapper.tie;
 };

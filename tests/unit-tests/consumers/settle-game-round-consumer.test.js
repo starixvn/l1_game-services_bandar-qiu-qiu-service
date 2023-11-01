@@ -63,13 +63,13 @@ describe("SettleGameRoundConsumer tests", () => {
                 "46",
                 "55",
             ];
-            const dealer = { dominoes: ["00", "01", "02", "03"], handRankingId: 1 };
+            const banker = { dominoes: ["00", "01", "02", "03"], handRankingId: 1 };
             const spade = { dominoes: ["11", "12", "13", "14"], handRankingId: 2 };
             const heart = { dominoes: ["22", "23", "24", "25"], handRankingId: 3 };
             const club = { dominoes: ["33", "34", "35", "36"], handRankingId: 4 };
             const diamond = { dominoes: ["44", "45", "46", "55"], handRankingId: 0 };
             calculateHand
-                .mockReturnValueOnce(dealer)
+                .mockReturnValueOnce(banker)
                 .mockReturnValueOnce(spade)
                 .mockReturnValueOnce(heart)
                 .mockReturnValueOnce(club)
@@ -79,7 +79,7 @@ describe("SettleGameRoundConsumer tests", () => {
             const actual = consumer.generateResult();
 
             // assert
-            expect(actual).toEqual({ dealer, spade, heart, club, diamond });
+            expect(actual).toEqual({ banker, spade, heart, club, diamond });
         });
     });
 

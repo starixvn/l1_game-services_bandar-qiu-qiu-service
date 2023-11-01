@@ -3,10 +3,10 @@ import { randomShuffles } from "./shuffle-helper";
 import { settleHand } from "./settle-rule";
 
 const settlementRuleEntries = Object.entries({
-    spade: (roundResult) => settleHand(roundResult.dealer, roundResult.spade),
-    heart: (roundResult) => settleHand(roundResult.dealer, roundResult.heart),
-    club: (roundResult) => settleHand(roundResult.dealer, roundResult.club),
-    diamond: (roundResult) => settleHand(roundResult.dealer, roundResult.diamond),
+    spade: (roundResult) => settleHand(roundResult.banker, roundResult.spade),
+    heart: (roundResult) => settleHand(roundResult.banker, roundResult.heart),
+    club: (roundResult) => settleHand(roundResult.banker, roundResult.club),
+    diamond: (roundResult) => settleHand(roundResult.banker, roundResult.diamond),
 });
 
 export const generateResult = (randomMode) => {
@@ -55,7 +55,7 @@ export const generateRawResultForHash = (roundResult) => {
     };
     const rawResult = roundResult.reduce((result, domino, index) => {
         result += dominoMapping[domino];
-        return (index + 1) % 4 === 0 && index !== 19 ? `${result}_` : result;
+        return (index + 1) % 4 === 0 && index !== 19 ? `${result},` : result;
     }, "");
     return `{${rawResult}}`;
 };

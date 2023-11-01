@@ -19,7 +19,7 @@ describe("result statistic: 100,000 times", () => {
             for (let i = 0; i < total; i++) {
                 const dominoes = generateResult(index + 1);
                 const roundResult = {
-                    dealer: calculateHand(dominoes.slice(0, 4)),
+                    banker: calculateHand(dominoes.slice(0, 4)),
                     spade: calculateHand(dominoes.slice(4, 8)),
                     heart: calculateHand(dominoes.slice(8, 12)),
                     club: calculateHand(dominoes.slice(12, 16)),

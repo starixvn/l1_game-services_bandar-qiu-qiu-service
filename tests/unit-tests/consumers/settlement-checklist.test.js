@@ -40,7 +40,7 @@ describe("Settlement checklist", () => {
         {
             name: "s2",
             playerDominoes: { spade: ["06", "15", "24", "33"] },
-            dealerDominoes: twinTestCases[0].dominoes,
+            bankerDominoes: twinTestCases[0].dominoes,
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -53,7 +53,7 @@ describe("Settlement checklist", () => {
         {
             name: "s3",
             playerDominoes: { spade: ["00", "33", "55", "66"] },
-            dealerDominoes: ["01", "12", "03", "02"],
+            bankerDominoes: ["01", "12", "03", "02"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -66,7 +66,7 @@ describe("Settlement checklist", () => {
         {
             name: "s4",
             playerDominoes: { spade: ["00", "11", "55", "66"] },
-            dealerDominoes: ["06", "15", "24", "33"],
+            bankerDominoes: ["06", "15", "24", "33"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -79,7 +79,7 @@ describe("Settlement checklist", () => {
         {
             name: "s5",
             playerDominoes: { spade: ["01", "12", "03", "02"] },
-            dealerDominoes: ["46", "55", "56", "66"],
+            bankerDominoes: ["46", "55", "56", "66"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -92,7 +92,7 @@ describe("Settlement checklist", () => {
         {
             name: "s6",
             playerDominoes: { spade: ["01", "12", "03", "02"] },
-            dealerDominoes: ["00", "33", "55", "66"],
+            bankerDominoes: ["00", "33", "55", "66"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -105,7 +105,7 @@ describe("Settlement checklist", () => {
         {
             name: "s7",
             playerDominoes: { spade: ["36", "45", "46", "66"] },
-            dealerDominoes: ["01", "26", "05", "22"],
+            bankerDominoes: ["01", "26", "05", "22"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -118,7 +118,7 @@ describe("Settlement checklist", () => {
         {
             name: "s8",
             playerDominoes: { spade: ["36", "45", "46", "66"] },
-            dealerDominoes: ["01", "12", "03", "02"],
+            bankerDominoes: ["01", "12", "03", "02"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -131,7 +131,7 @@ describe("Settlement checklist", () => {
         {
             name: "s9",
             playerDominoes: { spade: ["04", "05", "66", "16"] },
-            dealerDominoes: ["22", "14", "55", "26"],
+            bankerDominoes: ["22", "14", "55", "26"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -144,7 +144,7 @@ describe("Settlement checklist", () => {
         {
             name: "s10",
             playerDominoes: { spade: ["12", "33", "44", "01"] },
-            dealerDominoes: ["06", "03", "55", "45"],
+            bankerDominoes: ["06", "03", "55", "45"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -157,7 +157,7 @@ describe("Settlement checklist", () => {
         {
             name: "s11",
             playerDominoes: { spade: ["12", "33", "44", "01"] },
-            dealerDominoes: ["36", "45", "46", "66"],
+            bankerDominoes: ["36", "45", "46", "66"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -170,7 +170,7 @@ describe("Settlement checklist", () => {
         {
             name: "s13",
             playerDominoes: { spade: ["44", "01", "02", "12"] },
-            dealerDominoes: ["33", "11", "56", "06"],
+            bankerDominoes: ["33", "11", "56", "06"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -183,7 +183,7 @@ describe("Settlement checklist", () => {
         {
             name: "s14",
             playerDominoes: { spade: ["44", "01", "02", "12"] },
-            dealerDominoes: ["25", "56", "04", "03"],
+            bankerDominoes: ["25", "56", "04", "03"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -196,7 +196,7 @@ describe("Settlement checklist", () => {
         {
             name: "s15",
             playerDominoes: { spade: ["05", "13", "23", "46"] },
-            dealerDominoes: ["24", "02", "14", "01"],
+            bankerDominoes: ["24", "02", "14", "01"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -209,7 +209,7 @@ describe("Settlement checklist", () => {
         {
             name: "s16",
             playerDominoes: { spade: ["05", "04", "12", "01"] },
-            dealerDominoes: ["23", "03", "14", "02"],
+            bankerDominoes: ["23", "03", "14", "02"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -222,7 +222,7 @@ describe("Settlement checklist", () => {
         {
             name: "s17",
             playerDominoes: { spade: ["14", "13", "23", "46"] },
-            dealerDominoes: ["16", "01", "04", "03"],
+            bankerDominoes: ["16", "01", "04", "03"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -235,7 +235,7 @@ describe("Settlement checklist", () => {
         {
             name: "s18",
             playerDominoes: { spade: ["22", "23", "01", "12"] },
-            dealerDominoes: ["33", "02", "56", "06"],
+            bankerDominoes: ["33", "02", "56", "06"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -248,7 +248,7 @@ describe("Settlement checklist", () => {
         {
             name: "s19",
             playerDominoes: { spade: ["06", "03", "13", "02"] },
-            dealerDominoes: ["14", "12", "34", "46"],
+            bankerDominoes: ["14", "12", "34", "46"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -261,7 +261,7 @@ describe("Settlement checklist", () => {
         {
             name: "s20",
             playerDominoes: { spade: ["15", "02", "14", "66"] },
-            dealerDominoes: ["36", "55", "56", "13"],
+            bankerDominoes: ["36", "55", "56", "13"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -274,7 +274,7 @@ describe("Settlement checklist", () => {
         {
             name: "s21",
             playerDominoes: { spade: ["56", "03", "46", "12"] },
-            dealerDominoes: ["23", "04", "26", "02"],
+            bankerDominoes: ["23", "04", "26", "02"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -287,7 +287,7 @@ describe("Settlement checklist", () => {
         {
             name: "s22",
             playerDominoes: { spade: ["16", "01", "04", "03"] },
-            dealerDominoes: ["14", "13", "23", "46"],
+            bankerDominoes: ["14", "13", "23", "46"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -300,7 +300,7 @@ describe("Settlement checklist", () => {
         {
             name: "s23",
             playerDominoes: { spade: ["14", "03", "23", "01"] },
-            dealerDominoes: ["05", "04", "12", "02"],
+            bankerDominoes: ["05", "04", "12", "02"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -313,7 +313,7 @@ describe("Settlement checklist", () => {
         {
             name: "s24",
             playerDominoes: { spade: ["14", "13", "23", "12"] },
-            dealerDominoes: ["35", "00", "66", "01"],
+            bankerDominoes: ["35", "00", "66", "01"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -326,7 +326,7 @@ describe("Settlement checklist", () => {
         {
             name: "s25",
             playerDominoes: { spade: ["35", "00", "66", "01"] },
-            dealerDominoes: ["14", "13", "23", "12"],
+            bankerDominoes: ["14", "13", "23", "12"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -339,7 +339,7 @@ describe("Settlement checklist", () => {
         {
             name: "s26",
             playerDominoes: { spade: ["24", "02", "13", "11"] },
-            dealerDominoes: ["35", "55", "66", "00"],
+            bankerDominoes: ["35", "55", "66", "00"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -352,7 +352,7 @@ describe("Settlement checklist", () => {
         {
             name: "s27",
             playerDominoes: { spade: ["35", "55", "66", "00"] },
-            dealerDominoes: ["24", "02", "13", "11"],
+            bankerDominoes: ["24", "02", "13", "11"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -365,7 +365,7 @@ describe("Settlement checklist", () => {
         {
             name: "s28",
             playerDominoes: { spade: ["44", "01", "02", "12"] },
-            dealerDominoes: ["22", "14", "01", "13"],
+            bankerDominoes: ["22", "14", "01", "13"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -378,7 +378,7 @@ describe("Settlement checklist", () => {
         {
             name: "s29",
             playerDominoes: { spade: ["22", "14", "01", "13"] },
-            dealerDominoes: ["24", "12", "23", "46"],
+            bankerDominoes: ["24", "12", "23", "46"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -391,7 +391,7 @@ describe("Settlement checklist", () => {
         {
             name: "s30",
             playerDominoes: { spade: ["14", "13", "23", "46"] },
-            dealerDominoes: ["24", "03", "02", "12"],
+            bankerDominoes: ["24", "03", "02", "12"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -404,7 +404,7 @@ describe("Settlement checklist", () => {
         {
             name: "s31",
             playerDominoes: { spade: ["22", "14", "01", "13"] },
-            dealerDominoes: ["44", "01", "02", "12"],
+            bankerDominoes: ["44", "01", "02", "12"],
             bet: betSpade,
             expected: {
                 totalBetAmount: 100,
@@ -422,7 +422,7 @@ describe("Settlement checklist", () => {
                 club: qiuQiuTestCases[1].dominoes,
                 diamond: sixDevilTestCases[0].dominoes,
             },
-            dealerDominoes: qiuQiuTestCases[0].dominoes,
+            bankerDominoes: qiuQiuTestCases[0].dominoes,
             bet: { spade: 100, heart: 100, club: 100, diamond: 100 },
             expected: {
                 totalBetAmount: 400,
@@ -439,7 +439,7 @@ describe("Settlement checklist", () => {
                 club: ["33", "11", "04", "13"],
                 diamond: ["14", "03", "66", "56"],
             },
-            dealerDominoes: ["16", "02", "23", "46"],
+            bankerDominoes: ["16", "02", "23", "46"],
             bet: { spade: 100, club: 100, diamond: 100 },
             expected: {
                 totalBetAmount: 300,
@@ -457,7 +457,7 @@ describe("Settlement checklist", () => {
                 club: ["01", "35", "05", "22"],
                 diamond: ["11", "34", "26", "03"],
             },
-            dealerDominoes: ["25", "02", "44", "24"],
+            bankerDominoes: ["25", "02", "44", "24"],
             bet: { spade: 100, heart: 100, club: 100, diamond: 100 },
             expected: {
                 totalBetAmount: 400,
@@ -475,7 +475,7 @@ describe("Settlement checklist", () => {
                 club: ["12", "24", "02", "35"],
                 diamond: ["11", "34", "36", "45"],
             },
-            dealerDominoes: ["55", "26", "03", "14"],
+            bankerDominoes: ["55", "26", "03", "14"],
             bet: { spade: 100, heart: 100, club: 100, diamond: 100 },
             expected: {
                 totalBetAmount: 400,
@@ -493,7 +493,7 @@ describe("Settlement checklist", () => {
                 club: ["01", "02", "03", "12"],
                 diamond: ["00", "11", "22", "44"],
             },
-            dealerDominoes: ["06", "15", "24", "33"],
+            bankerDominoes: ["06", "15", "24", "33"],
             bet: { spade: 100, heart: 100, club: 100, diamond: 100 },
             expected: {
                 totalBetAmount: 400,
@@ -509,7 +509,7 @@ describe("Settlement checklist", () => {
                 heart: ["25", "46", "56", "66"],
                 diamond: ["36", "55", "16", "23"],
             },
-            dealerDominoes: ["04", "05", "13", "14"],
+            bankerDominoes: ["04", "05", "13", "14"],
             bet: { heart: 100, diamond: 100 },
             expected: {
                 totalBetAmount: 200,
@@ -523,14 +523,14 @@ describe("Settlement checklist", () => {
     testCase.forEach((testCase) => {
         it(`case: ${testCase.name} - should return winning by choices ${JSON.stringify(testCase.expected.winningByChoices)}`, () => {
             // arrange
-            const { playerDominoes, dealerDominoes, bet, expected } = testCase;
+            const { playerDominoes, bankerDominoes, bet, expected } = testCase;
             const roundResult = Object.keys(playerDominoes).reduce((result, choice) => {
                 result[choice] = calculateHand(playerDominoes[choice]);
                 return result;
             }, {});
-            const dealerHand = calculateHand(dealerDominoes);
+            const bankerHand = calculateHand(bankerDominoes);
             const settlementResult = Object.keys(playerDominoes).reduce((result, choice) => {
-                result[choice] = settleHand(dealerHand, roundResult[choice]);
+                result[choice] = settleHand(bankerHand, roundResult[choice]);
                 return result;
             }, {});
 

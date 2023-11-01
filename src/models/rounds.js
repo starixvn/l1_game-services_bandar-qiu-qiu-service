@@ -13,7 +13,7 @@ const handSchema = new mongoose.Schema(
 
 const resultSchema = new mongoose.Schema(
     {
-        dealer: handSchema,
+        banker: handSchema,
         spade: handSchema,
         heart: handSchema,
         club: handSchema,

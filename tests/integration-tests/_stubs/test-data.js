@@ -29,7 +29,7 @@ const gameConfig = {
 };
 
 const tempRoundResult = {
-    dealer: { dominoes: [], handRankingId: 0, pipsOfSet: null },
+    banker: { dominoes: [], handRankingId: 0, pipsOfSet: null },
     spade: { dominoes: [], handRankingId: 0, pipsOfSet: null },
     heart: { dominoes: [], handRankingId: 0, pipsOfSet: null },
     club: { dominoes: [], handRankingId: 0, pipsOfSet: null },

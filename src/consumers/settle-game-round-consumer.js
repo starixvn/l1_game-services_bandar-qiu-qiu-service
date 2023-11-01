@@ -6,7 +6,7 @@ export default class SettleGameRoundConsumer extends Table.EventConsumers.TableS
     generateResult() {
         const dominoes = super.generateResult();
         return {
-            dealer: calculateHand(dominoes.slice(0, 4)),
+            banker: calculateHand(dominoes.slice(0, 4)),
             spade: calculateHand(dominoes.slice(4, 8)),
             heart: calculateHand(dominoes.slice(8, 12)),
             club: calculateHand(dominoes.slice(12, 16)),

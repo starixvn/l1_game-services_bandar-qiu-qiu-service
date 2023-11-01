@@ -22,7 +22,7 @@ describe("result-helper tests", () => {
             // arrange
             settleHand.mockReturnValueOnce(0).mockReturnValueOnce(1).mockReturnValueOnce(0).mockReturnValueOnce(2);
             const roundResult = {
-                dealer: { dominoes: ["00"], handRankingId: 0 },
+                banker: { dominoes: ["00"], handRankingId: 0 },
                 spade: { dominoes: ["01"], handRankingId: 0 },
                 heart: { dominoes: ["02"], handRankingId: 0 },
                 club: { dominoes: ["03"], handRankingId: 0 },
@@ -34,10 +34,10 @@ describe("result-helper tests", () => {
 
             // assert
             expect(settleHand).toHaveBeenCalledTimes(4);
-            expect(settleHand).toHaveBeenCalledWith(roundResult.dealer, roundResult.spade);
-            expect(settleHand).toHaveBeenCalledWith(roundResult.dealer, roundResult.heart);
-            expect(settleHand).toHaveBeenCalledWith(roundResult.dealer, roundResult.club);
-            expect(settleHand).toHaveBeenCalledWith(roundResult.dealer, roundResult.diamond);
+            expect(settleHand).toHaveBeenCalledWith(roundResult.banker, roundResult.spade);
+            expect(settleHand).toHaveBeenCalledWith(roundResult.banker, roundResult.heart);
+            expect(settleHand).toHaveBeenCalledWith(roundResult.banker, roundResult.club);
+            expect(settleHand).toHaveBeenCalledWith(roundResult.banker, roundResult.diamond);
             expect(settlementResult).toEqual({
                 spade: 0,
                 heart: 1,
@@ -72,7 +72,7 @@ describe("result-helper tests", () => {
                     "33",
                     "34",
                 ],
-                expected: "{🁣🁤🁥🁦_🁧🁨🁩🁫_🁬🁭🁮🁯_🁰🁳🁴🁵_🁶🁷🁻🁼}",
+                expected: "{🁣🁤🁥🁦,🁧🁨🁩🁫,🁬🁭🁮🁯,🁰🁳🁴🁵,🁶🁷🁻🁼}",
             },
             {
                 result: [
@@ -97,7 +97,7 @@ describe("result-helper tests", () => {
                     "56",
                     "66",
                 ],
-                expected: "{🁬🁭🁮🁯_🁰🁳🁴🁵_🁶🁷🁻🁼_🁽🁾🂃🂄_🂅🂋🂌🂓}",
+                expected: "{🁬🁭🁮🁯,🁰🁳🁴🁵,🁶🁷🁻🁼,🁽🁾🂃🂄,🂅🂋🂌🂓}",
             },
         ];
         it.each(testCase)("should return expected", ({ result, expected }) => {
