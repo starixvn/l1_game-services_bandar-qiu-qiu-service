@@ -1,4 +1,4 @@
-import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
+import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integration-utils";
 import gameSettings from "./_stubs/game-settings";
 import { startService } from "./_stubs/test-jobs";
 import {
@@ -31,12 +31,12 @@ describe("when user joins game", () => {
         const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
 
         // Act
-        normalUserClientDriver.handleSignedInEvent(() => {
+        normalUserClientDriver.on(eventTypes.signedIn, () => {
             normalUserClientDriver.sendInGameEvent();
         });
 
         // Assert
-        normalUserClientDriver.handleInGameEvent((inGameData) => {
+        normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
             if (inGameData?.gameConfigs) {
                 expect(inGameData.gameConfigs.minBet).toEqual(1);
                 expect(inGameData.gameConfigs.maxBet).toEqual(3000);
@@ -66,12 +66,12 @@ describe("when user joins game", () => {
         const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
 
         // Act
-        normalUserClientDriver.handleSignedInEvent(() => {
+        normalUserClientDriver.on(eventTypes.signedIn, () => {
             normalUserClientDriver.sendInGameEvent();
         });
 
         // Assert
-        normalUserClientDriver.handleInGameEvent((inGameData) => {
+        normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
             if (inGameData?.user?.UID) {
                 expect(inGameData.user).toStrictEqual({
                     UID: 1,
@@ -94,12 +94,12 @@ describe("when user joins game", () => {
         const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
 
         // Act
-        normalUserClientDriver.handleSignedInEvent(() => {
+        normalUserClientDriver.on(eventTypes.signedIn, () => {
             normalUserClientDriver.sendInGameEvent();
         });
 
         // Assert
-        normalUserClientDriver.handleInGameEvent((inGameData) => {
+        normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
             if (inGameData?.roundHistory) {
                 expect(inGameData.roundHistory.length).toBeGreaterThan(0);
 
@@ -115,7 +115,7 @@ describe("when user joins game", () => {
             const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
 
             // Act
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
+            normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
                 if (inGameData.remainingTime) {
                     const timeout = getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000;
                     setTimeout(() => {
@@ -125,7 +125,7 @@ describe("when user joins game", () => {
             });
 
             // Assert
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
+            normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
                 if (inGameData.gameConfigs && inGameData.resultHash) {
                     expect(inGameData.resultHash.hashValue).not.toBeEmpty();
 
@@ -142,7 +142,7 @@ describe("when user joins game", () => {
             const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
 
             // Act
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
+            normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
                 if (inGameData.remainingTime) {
                     const timeout = getTimeOutToSettleTime(inGameData.remainingTime, gameSettings.durations) * 1000;
                     setTimeout(() => {
@@ -152,7 +152,7 @@ describe("when user joins game", () => {
             });
 
             // Assert
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
+            normalUserClientDriver.on(normalUserClientDriver.gameName, (inGameData) => {
                 if (inGameData.gameConfigs && inGameData.resultHash) {
                     expect(inGameData.resultHash.rawValue).not.toBeEmpty();
 

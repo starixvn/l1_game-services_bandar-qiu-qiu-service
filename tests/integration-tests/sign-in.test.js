@@ -1,7 +1,7 @@
 import { startService } from "./_stubs/test-jobs";
 const path = require("path");
 import { getProcessId, buildConfigs, initUserSession, checkConnect } from "./_stubs/helper";
-import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
+import { GameClientDriver, eventTypes, normalUser } from "sc-game-service-integration-utils";
 import { socketOptionsFunc } from "./_stubs/test-data";
 
 const scriptName = path.basename(__filename);
@@ -22,7 +22,7 @@ describe("signin", () => {
         const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
 
         //Assert
-        normalUserClientDriver.handleSignedInEvent(() => {
+        normalUserClientDriver.on(eventTypes.signedIn, () => {
             normalUserClientDriver.close();
             done();
         });

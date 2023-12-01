@@ -1,4 +1,4 @@
-import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
+import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integration-utils";
 import gameSettings from "./_stubs/game-settings";
 import { startService } from "./_stubs/test-jobs";
 import { getProcessId, buildConfigs, getTimeOutToPlacingBetTime, initUserSession, checkConnect } from "./_stubs/helper";
@@ -21,7 +21,7 @@ describe("rebet", () => {
     it("should return rebet data", (done) => {
         // Arrange
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.handleSignedInEvent(() => {
+        client.on(eventTypes.signedIn, () => {
             client.sendInGameEvent();
         });
         let receivedRemainingTime = false;

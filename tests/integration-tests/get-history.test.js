@@ -1,4 +1,4 @@
-import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
+import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integration-utils";
 import { startService } from "./_stubs/test-jobs";
 import { getProcessId, buildConfigs, initUserSession, checkConnect } from "./_stubs/helper";
 import { socketOptionsFunc } from "./_stubs/test-data";
@@ -20,7 +20,7 @@ describe("when get history", () => {
     it("should return history", (done) => {
         // Arrange
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.handleSignedInEvent(() => {
+        client.on(eventTypes.signedIn, () => {
             client.sendInGameEvent();
         });
         const expectedData = [

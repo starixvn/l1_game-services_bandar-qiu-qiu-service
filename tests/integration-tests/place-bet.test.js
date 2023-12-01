@@ -29,7 +29,7 @@ describe("place bet", () => {
         it("should return own bet data", (done) => {
             // Arrange
             const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-            client.handleSignedInEvent(() => {
+            client.on(eventTypes.signedIn, () => {
                 client.sendInGameEvent();
             });
             let receivedRemainingTime = false;
@@ -63,7 +63,7 @@ describe("place bet", () => {
         it("should return invalid", (done) => {
             // Arrange
             const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-            client.handleSignedInEvent(() => {
+            client.on(eventTypes.signedIn, () => {
                 client.sendInGameEvent();
             });
             let receivedRemainingTime = false;

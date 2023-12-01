@@ -21,7 +21,7 @@ describe("when settle", () => {
     it("should return settled status data", (done) => {
         // Arrange
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.handleSignedInEvent(() => {
+        client.on(eventTypes.signedIn, () => {
             client.sendInGameEvent();
         });
         let receivedRemainingTime = false;
@@ -50,7 +50,7 @@ describe("when settle", () => {
     it("should return settled finish data and hashResult with rawValue", (done) => {
         // Arrange & Act
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.handleSignedInEvent(() => {
+        client.on(eventTypes.signedIn, () => {
             client.sendInGameEvent();
         });
 
