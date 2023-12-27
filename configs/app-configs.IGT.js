@@ -13,8 +13,11 @@ export default {
         placeBetTimeout: 2000,
         enabledApiLogs: true,
     },
+    gameManagementApiSettings: {
+        BASE: "http://localhost:5000",
+    },
     authenticateSettings: {
-        url: "http://l1_auth_api_local:5000",
+        url: "https://auth.lumigame.com",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,

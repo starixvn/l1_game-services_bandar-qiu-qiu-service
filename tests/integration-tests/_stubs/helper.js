@@ -13,6 +13,7 @@ export const checkConnect = (processId, callback) => {
         }, 1000);
     });
     normalUserClientDriver.on(eventTypes.connect, () => {
+        normalUserClientDriver.close();
         setTimeout(callback, 2000);
     });
 };
@@ -40,7 +41,7 @@ export const buildConfigs = (processId) => {
 export const getTimeOutToPlacingBetTime = (remainingTime, durations) => {
     let timeout = 0;
     if (remainingTime <= durations.lockingBet) {
-        timeout = remainingTime + durations.wholeRound - durations.placingBets + 1;
+        timeout = remainingTime + durations.wholeRound - durations.placingBets + 2;
     } else if (remainingTime >= durations.placingBets) {
         timeout = remainingTime - durations.placingBets + 1;
     }

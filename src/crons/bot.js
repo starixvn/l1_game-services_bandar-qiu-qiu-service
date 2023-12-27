@@ -2,8 +2,8 @@ import { Table } from "sc-game-base";
 import { betChoices, botChips } from "../constants";
 
 export default class Bot extends Table.Crons.TableGameBot {
-    constructor(definition, gameData, publisher, userInfosRepository, tempBetsRepository, appConfigs) {
-        super(definition, gameData, publisher, userInfosRepository, tempBetsRepository);
+    constructor(definition, gameData, publisher, gameManagementApiClientFactory, tempBetsRepository, appConfigs) {
+        super(definition, gameData, publisher, gameManagementApiClientFactory, tempBetsRepository);
         this.appConfigs = appConfigs;
         this.mainOptions = Object.values(betChoices);
         this.smallTicketRatio = 70;

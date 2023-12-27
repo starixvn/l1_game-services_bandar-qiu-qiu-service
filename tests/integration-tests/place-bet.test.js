@@ -26,67 +26,47 @@ describe("place bet", () => {
     });
 
     describe("when place bet in placing bet time", () => {
-        it("should return own bet data", (done) => {
+        it("should return own bet data", async () => {
             // Arrange
             const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-            client.handleSignedInEvent(() => {
-                client.sendInGameEvent();
-            });
-            let receivedRemainingTime = false;
+            await client.handleSignedInEvent();
+            client.sendInGameEvent();
+            const inGameData = await client.handleGameEvent((data) => data.remainingTime);
+            const timeout = getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000;
 
             // Act
-            client.on(socketOptions.gameName, (inGameData) => {
-                if (inGameData.remainingTime && !receivedRemainingTime) {
-                    receivedRemainingTime = true;
-                    setTimeout(() => {
-                        client.emit(eventTypes.bet, { betChoice: "spade", amount: 101 });
-                    }, getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000);
-                }
-            });
+            setTimeout(() => {
+                client.emit(eventTypes.bet, { betChoice: "spade", amount: 101 });
+            }, timeout);
 
             // Assert
-            client.on(socketOptions.gameName, (data) => {
-                if (data.endBet) {
-                    expect(data.betChoice).toBe("spade");
-                    expect(data.endBet).toBe(101);
-                    expect(data.ownBets).toEqual({ spade: 101 });
-                    expect(data.ownChip).toEqual({ betChoice: "spade", amount: 101 });
+            const data = await client.handleGameEvent((data) => data.endBet);
+            client.close();
 
-                    client.close();
-                    done();
-                }
-            });
+            expect(data.betChoice).toBe("spade");
+            expect(data.endBet).toBe(101);
+            expect(data.ownBets).toEqual({ spade: 101 });
+            expect(data.ownChip).toEqual({ betChoice: "spade", amount: 101 });
         });
     });
 
     describe("when place bet NOT in placing bet time", () => {
-        it("should return invalid", (done) => {
+        it("should return invalid", async () => {
             // Arrange
             const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-            client.handleSignedInEvent(() => {
-                client.sendInGameEvent();
-            });
-            let receivedRemainingTime = false;
+            await client.handleSignedInEvent();
+            client.sendInGameEvent();
+            const inGameData = await client.handleGameEvent((data) => data.remainingTime);
 
             // Act
-            client.on(socketOptions.gameName, (inGameData) => {
-                if (inGameData.remainingTime && !receivedRemainingTime) {
-                    receivedRemainingTime = true;
-                    setTimeout(() => {
-                        client.emit(eventTypes.bet, { betChoice: "spade", amount: 100 });
-                    }, getTimeOutToBetInvalid(inGameData.remainingTime, gameSettings.durations) * 1000);
-                }
-            });
+            setTimeout(() => {
+                client.emit(eventTypes.bet, { betChoice: "spade", amount: 100 });
+            }, getTimeOutToBetInvalid(inGameData.remainingTime, gameSettings.durations) * 1000);
 
             // Assert
-            client.on(socketOptions.gameName, (data) => {
-                if (data.endBet) {
-                    expect(data.endBet).toBe(-1);
-
-                    client.close();
-                    done();
-                }
-            });
+            const data = await client.handleGameEvent((data) => data.endBet);
+            client.close();
+            expect(data.endBet).toBe(-1);
         });
     });
 });

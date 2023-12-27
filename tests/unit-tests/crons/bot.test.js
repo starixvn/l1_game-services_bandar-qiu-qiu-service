@@ -5,6 +5,7 @@ import { Core, Table } from "sc-game-base";
 import Bot from "../../../src/crons/bot";
 import gameSettings from "../../../src/game-settings";
 import appConfigs from "../../../src/app-configs";
+import GameManagementApiClientFactory from "sc-game-base/src/core/game-management-api";
 
 describe("bot test", () => {
     const definition = new Table.TableGameDefinition(gameSettings);
@@ -24,9 +25,9 @@ describe("bot test", () => {
     /** @type {mongoose.Model}*/
     const tempBetsRepository = stubMongooseModelStupidly(mongoose.Model);
 
-    /** @type {mongoose.Model}*/
-    const userInfosRepository = stubMongooseModelStupidly(mongoose.Model);
-    const botInstance = new Bot(definition, gameData, publisher, userInfosRepository, tempBetsRepository, appConfigs);
+    const gameManagementApiClientFactory = new GameManagementApiClientFactory({});
+
+    const botInstance = new Bot(definition, gameData, publisher, gameManagementApiClientFactory, tempBetsRepository, appConfigs);
     const bot = {
         id: 1,
         name: "bot1",

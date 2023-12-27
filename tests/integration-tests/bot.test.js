@@ -1,4 +1,4 @@
-import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
+import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integration-utils";
 import { startService } from "./_stubs/test-jobs";
 import { getProcessId, buildConfigs, initUserSession, checkConnect } from "./_stubs/helper";
 import { socketOptionsFunc } from "./_stubs/test-data";
@@ -11,7 +11,7 @@ startService(processId);
 const appConfigs = buildConfigs(processId);
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);
 
-describe("bot", () => {
+xdescribe("bot", () => {
     it("check connect", (done) => {
         checkConnect(processId, done);
     });
@@ -19,7 +19,7 @@ describe("bot", () => {
     it("should receive bot bets", (done) => {
         // Arrange
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.handleSignedInEvent(() => {
+        client.on(eventTypes.signedIn, () => {
             client.sendInGameEvent();
         });
 

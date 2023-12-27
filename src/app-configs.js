@@ -2,8 +2,8 @@ export default {
     hostingPort: 8087,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://api.lumigame.com",
-        authUrl: "http://auth.lumigame.com",
+        apiUrl: "https://api.lumigame.com",
+        authUrl: "https://auth.lumigame.com",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -13,6 +13,9 @@ export default {
         placeBetTimeout: 2000,
         enabledApiLogs: true,
     },
+    gameManagementApiSettings: {
+        BASE: "https://l1-proxy.lumigame.com/game-management-service",
+    },
     socketOptions: {
         pingInterval: 60 * 1000,
         pingTimeout: 60 * 1000,
@@ -21,7 +24,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://localhost:27017",
+        url: "mongodb://127.0.0.1:27017",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -35,7 +38,7 @@ export default {
         env: "LOCAL",
     },
     authenticateSettings: {
-        url: "http://auth.lumigame.com",
+        url: "https://auth.lumigame.com",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
@@ -47,4 +50,9 @@ export default {
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableMsgpackParser: false,
+    otel: {
+        system: "SG",
+        enabled: true,
+        endpoint: "https://jaeger-collector.lumigame.com/v1/traces",
+    },
 };

@@ -3,10 +3,13 @@ import { Core, Table } from "sc-game-base";
 import SettleGameRoundConsumer from "../../../src/consumers/settle-game-round-consumer";
 import { calculateHand } from "../../../src/helpers/hand-helper";
 import { handRankingId } from "../../../src/constants";
+import GameManagementApiClientFactory from "sc-game-base/src/core/game-management-api";
 
 jest.mock("../../../src/helpers/hand-helper", () => ({
     calculateHand: jest.fn(),
 }));
+
+const gameManagementApiClientFactory = new GameManagementApiClientFactory({});
 describe("SettleGameRoundConsumer tests", () => {
     const definition = new Table.TableGameDefinition({ id: 1, name: "game name" });
     definition.choices = ["spade", "heart", "club", "diamond"];
@@ -33,6 +36,7 @@ describe("SettleGameRoundConsumer tests", () => {
         roundsRepository,
         betsRepository,
         tempBetsRepository,
+        gameManagementApiClientFactory,
     });
     it("Inherit Table.EventConsumers.TableSettleGameRoundConsumer", () => {
         expect(consumer instanceof Table.EventConsumers.TableSettleGameRoundConsumer).toBeTruthy();

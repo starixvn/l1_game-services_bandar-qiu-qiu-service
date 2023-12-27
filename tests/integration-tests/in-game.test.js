@@ -26,140 +26,123 @@ describe("when user joins game", () => {
         checkConnect(processId, done);
     });
 
-    it("should return game configs", (done) => {
-        // Arrange
-        const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
+    describe("test data join game", () => {
+        let userClientDriver;
 
-        // Act
-        normalUserClientDriver.handleSignedInEvent(() => {
-            normalUserClientDriver.sendInGameEvent();
+        beforeEach(async () => {
+            userClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
+            await userClientDriver.handleSignedInEvent();
+            userClientDriver.sendInGameEvent();
         });
 
-        // Assert
-        normalUserClientDriver.handleInGameEvent((inGameData) => {
-            if (inGameData?.gameConfigs) {
-                expect(inGameData.gameConfigs.minBet).toEqual(1);
-                expect(inGameData.gameConfigs.maxBet).toEqual(3000);
-                expect(inGameData.gameConfigs.maxBetPerChoices).toStrictEqual({
-                    spade: 3000,
-                    heart: 3000,
-                    club: 3000,
-                    diamond: 3000,
-                });
-                expect(inGameData.gameConfigs.odds).toStrictEqual({
-                    sixDevil: 7,
-                    twin: 6,
-                    small: 5,
-                    big: 4,
-                    qiuQiu: 3,
-                    ordinaryCard: 2,
-                });
-
-                normalUserClientDriver.close();
-                done();
-            }
-        });
-    });
-
-    it("should return user info", (done) => {
-        // Arrange
-        const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
-
-        // Act
-        normalUserClientDriver.handleSignedInEvent(() => {
-            normalUserClientDriver.sendInGameEvent();
+        afterEach(() => {
+            userClientDriver.close();
+            userClientDriver = null;
         });
 
-        // Assert
-        normalUserClientDriver.handleInGameEvent((inGameData) => {
-            if (inGameData?.user?.UID) {
-                expect(inGameData.user).toStrictEqual({
-                    UID: 1,
-                    avatarId: 1,
-                    currency: "$US",
-                    name: "NormalUser",
-                    rate: 1,
-                    red: 25000,
-                    type: false,
-                });
+        it("should return game configs", async () => {
+            // Act
+            const result = await userClientDriver.handleGameEvent((inGameData) => inGameData.gameConfigs);
+            const { gameConfigs } = result;
 
-                normalUserClientDriver.close();
-                done();
-            }
-        });
-    });
-
-    it("should return round history", (done) => {
-        // Arrange
-        const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
-
-        // Act
-        normalUserClientDriver.handleSignedInEvent(() => {
-            normalUserClientDriver.sendInGameEvent();
+            // Assert
+            expect(gameConfigs.minBet).toEqual(1);
+            expect(gameConfigs.maxBet).toEqual(3000);
+            expect(gameConfigs.maxBetPerChoices).toStrictEqual({
+                spade: 3000,
+                heart: 3000,
+                club: 3000,
+                diamond: 3000,
+            });
+            expect(gameConfigs.odds).toStrictEqual({
+                sixDevil: 7,
+                twin: 6,
+                small: 5,
+                big: 4,
+                qiuQiu: 3,
+                ordinaryCard: 2,
+            });
         });
 
-        // Assert
-        normalUserClientDriver.handleInGameEvent((inGameData) => {
-            if (inGameData?.roundHistory) {
-                expect(inGameData.roundHistory.length).toBeGreaterThan(0);
+        it("should return user info", async () => {
+            // Act
+            const result = await userClientDriver.handleGameEvent((inGameData) => inGameData.user?.UID);
+            const { user } = result;
 
-                normalUserClientDriver.close();
-                done();
-            }
+            // Assert
+            expect(user).toStrictEqual({
+                UID: 1,
+                avatarId: 1,
+                currency: "$US",
+                name: "NormalUser",
+                rate: 1,
+                red: 20000,
+                type: false,
+            });
+        });
+
+        it("should return round history", async () => {
+            // Act
+            const result = await userClientDriver.handleGameEvent((inGameData) => inGameData.roundHistory);
+            const { roundHistory } = result;
+
+            // Assert
+            expect(roundHistory.length).toBeGreaterThan(0);
         });
     });
 
     describe("when join game in placing bet time", () => {
-        it("should return resultHash with hashValue", (done) => {
-            // Arrange
-            const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
+        let userClientDriver;
 
+        beforeEach(async () => {
+            userClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
+            await userClientDriver.handleSignedInEvent();
+            const inGameData = await userClientDriver.handleGameEvent((inGameData) => inGameData.remainingTime);
+            const timeout = getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000;
+            setTimeout(() => {
+                userClientDriver.sendInGameEvent();
+            }, timeout);
+        });
+
+        afterEach(() => {
+            userClientDriver.close();
+            userClientDriver = null;
+        });
+
+        it("should return resultHash with hashValue when join game in placing bet time", async () => {
             // Act
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
-                if (inGameData.remainingTime) {
-                    const timeout = getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000;
-                    setTimeout(() => {
-                        normalUserClientDriver.sendInGameEvent();
-                    }, timeout);
-                }
-            });
+            const result = await userClientDriver.handleGameEvent((inGameData) => inGameData.gameConfigs && inGameData.resultHash);
+            const { resultHash } = result;
 
             // Assert
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
-                if (inGameData.gameConfigs && inGameData.resultHash) {
-                    expect(inGameData.resultHash.hashValue).not.toBeEmpty();
-
-                    normalUserClientDriver.close();
-                    done();
-                }
-            });
+            expect(resultHash.hashValue).not.toBeEmpty();
         });
     });
 
     describe("when join game in settle time", () => {
-        it("should return resultHash with rawValue", (done) => {
-            // Arrange
-            const normalUserClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
+        let userClientDriver;
 
+        beforeEach(async () => {
+            userClientDriver = new GameClientDriver(socketOptions, initUserSession(normalUser));
+            await userClientDriver.handleSignedInEvent();
+            const inGameData = await userClientDriver.handleGameEvent((inGameData) => inGameData.remainingTime);
+            const timeout = getTimeOutToSettleTime(inGameData.remainingTime, gameSettings.durations) * 1000;
+            setTimeout(() => {
+                userClientDriver.sendInGameEvent();
+            }, timeout);
+        });
+
+        afterEach(() => {
+            userClientDriver.close();
+            userClientDriver = null;
+        });
+        it("should return resultHash with rawValue", async () => {
             // Act
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
-                if (inGameData.remainingTime) {
-                    const timeout = getTimeOutToSettleTime(inGameData.remainingTime, gameSettings.durations) * 1000;
-                    setTimeout(() => {
-                        normalUserClientDriver.sendInGameEvent();
-                    }, timeout);
-                }
-            });
+            const result = await userClientDriver.handleGameEvent((inGameData) => inGameData.gameConfigs && inGameData.resultHash);
+            const { resultHash } = result;
 
             // Assert
-            normalUserClientDriver.handleInGameEvent((inGameData) => {
-                if (inGameData.gameConfigs && inGameData.resultHash) {
-                    expect(inGameData.resultHash.rawValue).not.toBeEmpty();
-
-                    normalUserClientDriver.close();
-                    done();
-                }
-            });
+            expect(resultHash.rawValue).not.toBeEmpty();
         });
     });
 });

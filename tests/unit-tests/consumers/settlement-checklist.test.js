@@ -4,6 +4,9 @@ import SettleGameRoundConsumer from "../../../src/consumers/settle-game-round-co
 import { calculateHand } from "../../../src/helpers/hand-helper";
 import { qiuQiuTestCases, sixDevilTestCases, smallHandTestCases, twinTestCases } from "../helpers/testcases";
 import { settleHand } from "../../../src/helpers/settle-rule";
+import GameManagementApiClientFactory from "sc-game-base/src/core/game-management-api";
+
+const gameManagementApiClientFactory = new GameManagementApiClientFactory({});
 
 describe("Settlement checklist", () => {
     const definition = new Table.TableGameDefinition({ id: 1, name: "game name" });
@@ -31,6 +34,7 @@ describe("Settlement checklist", () => {
         roundsRepository,
         betsRepository,
         tempBetsRepository,
+        gameManagementApiClientFactory,
     });
     const odds = { ordinaryCard: 2, qiuQiu: 3, big: 4, small: 5, twin: 6, sixDevil: 7 };
 

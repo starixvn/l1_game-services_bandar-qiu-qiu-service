@@ -18,32 +18,21 @@ describe("rebet", () => {
         checkConnect(processId, done);
     });
 
-    it("should return rebet data", (done) => {
+    it("should return rebet data", async () => {
         // Arrange
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.handleSignedInEvent(() => {
-            client.sendInGameEvent();
-        });
-        let receivedRemainingTime = false;
+        await client.handleSignedInEvent();
+        client.sendInGameEvent();
+        const inGameData = await client.handleGameEvent((inGameData) => inGameData.remainingTime);
 
         // Act
-        client.on(socketOptions.gameName, (inGameData) => {
-            if (inGameData.remainingTime && !receivedRemainingTime) {
-                receivedRemainingTime = true;
-                setTimeout(() => {
-                    client.emit("rebet", { m: 1 });
-                }, getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000);
-            }
-        });
+        setTimeout(() => {
+            client.emit("rebet", { m: 1 });
+        }, getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000);
 
         // Assert
-        client.on(socketOptions.gameName, (data) => {
-            if (data.rebet) {
-                expect(data.ownBets).toEqual({ spade: 100, heart: 10, club: 20 });
-
-                client.close();
-                done();
-            }
-        });
+        const data = await client.handleGameEvent((data) => data.rebet);
+        client.close();
+        expect(data.ownBets).toEqual({ spade: 100, heart: 10, club: 20 });
     });
 });

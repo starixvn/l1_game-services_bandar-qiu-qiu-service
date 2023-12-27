@@ -2,8 +2,8 @@ export default {
     hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://l1_game_api_local:5000",
-        authUrl: "http://l1_auth_api_local:5000",
+        apiUrl: "http://l1-aws-game-api-local-service:5000",
+        authUrl: "https://auth.lumigame.com",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -22,7 +22,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://lmn_backend:LmnBackend@10.10.50.12:39100,10.10.50.13:39100,10.10.50.14:39100/?replicaSet=L1Local&appName=BandarQiuQiu",
+        url: "mongodb://lmn_backend:LmnBackend@10.6.48.200:27101,10.6.64.200:27101,10.6.80.200:27101/?replicaSet=L1AWSLocal&appName=BandarQiuQiu",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -33,10 +33,10 @@ export default {
     sentry: {
         sentryUrl: "https://13f39b8359404ed5aec23655e64ccf78@sentry.lumigame.com/2",
         logIdentifier: "BandarQiuQiu",
-        env: "LOCAL",
+        env: "AWS_LOCAL",
     },
     authenticateSettings: {
-        url: "http://l1_auth_api_local:5000",
+        url: "https://auth.lumigame.com",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
@@ -44,7 +44,7 @@ export default {
         audiences: ["api", "admin-api"],
     },
     userServiceSettings: {
-        url: "http://l1_user_service_local:5000",
+        url: "https://l1-proxy.lumigame.com/user",
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     metrics: {
@@ -52,4 +52,13 @@ export default {
         secretKey: "6c1f0f28-70f2-46ae-b031-22624a6cd8df",
     },
     enableMsgpackParser: false,
+    gameManagementApiSettings: {
+        BASE: "https://l1-proxy.lumigame.com/game-management-service",
+    },
+    disableCors: false,
+    otel: {
+        system: "SG",
+        enabled: true,
+        endpoint: "https://jaeger-collector.lumigame.com/v1/traces",
+    },
 };
