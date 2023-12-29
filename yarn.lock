@@ -6513,10 +6513,10 @@ sc-common@1.8.1:
     mongoose-long "^0.3.0"
     numeral "^2.0.6"
 
-sc-game-base@4.1.0, sc-game-base@4.1.1-beta.19, sc-game-base@4.1.1-beta.54:
-  version "4.1.1-beta.54"
-  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-4.1.1-beta.54.tgz#88500f8e28ac4a6f51b8e41e1ff50fa648508abc"
-  integrity sha512-9wVGM1Q9qquuJ3yhw6IiNd6icxchSn9XaA6Pvw+UanhidkZzobX0GPN3uJjkLDrqC+3aa7+0u8a2qiV1UOC9jA==
+sc-game-base@4.1.0, sc-game-base@4.1.1-beta.52, sc-game-base@4.1.1-beta.55:
+  version "4.1.1-beta.55"
+  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-4.1.1-beta.55.tgz#d6d039e523c5e6707df84d37a70417a56fd941cd"
+  integrity sha512-bbqnYNxAuz77cQxXPx1W79oGRTLqgrzC4QGB/Y0viC1W+mN1b8yJDef7EXb7mbZVf1tqTcfboWKXCwzsU5w3DA==
   dependencies:
     awilix "^8.0.0"
     axios "^1.0.0"
