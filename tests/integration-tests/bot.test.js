@@ -11,24 +11,22 @@ startService(processId);
 const appConfigs = buildConfigs(processId);
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);
 
-xdescribe("bot", () => {
+describe("bot", () => {
     it("check connect", (done) => {
         checkConnect(processId, done);
     });
 
-    it("should receive bot bets", (done) => {
+    it("should receive bot bets", async () => {
         // Arrange
         const client = new GameClientDriver(socketOptions, initUserSession(normalUser));
-        client.on(eventTypes.signedIn, () => {
-            client.sendInGameEvent();
-        });
+        await client.handleSignedInEvent();
+        client.sendInGameEvent();
+
+        // Act
+        const result = await client.handleGameEvent((data) => data.playerChip);
+        client.close();
 
         // Assert
-        client.on(socketOptions.gameName, (data) => {
-            if (data.playerChip) {
-                client.close();
-                done();
-            }
-        });
+        expect(result.playerChip).not.toBeNull();
     });
 });
