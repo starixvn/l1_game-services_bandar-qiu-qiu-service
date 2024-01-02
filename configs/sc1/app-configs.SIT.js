@@ -55,5 +55,4 @@ export default {
     gameManagementApiSettings: {
         BASE: "https://l1uatproxy.sgamesuat.com/sit/game-management-service",
     },
-    disableCors: true,
 };

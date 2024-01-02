@@ -2,7 +2,7 @@ export default {
     hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "https://l1uatapi.sgamesuat.com",
+        apiUrl: "http://l1-aws-game-api-uat-service:5000",
         authUrl: "https://l1uatauth.sgamesuat.com",
         client: {
             id: "game-server",
@@ -55,5 +55,4 @@ export default {
     gameManagementApiSettings: {
         BASE: "https://l1uatproxy.sgamesuat.com/uat/game-management-service",
     },
-    disableCors: true,
 };
