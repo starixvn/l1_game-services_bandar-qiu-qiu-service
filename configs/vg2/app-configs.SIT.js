@@ -2,8 +2,8 @@ export default {
     hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://l2_game_api_sit:5000",
-        authUrl: "http://l2_auth_api_sit:5000",
+        apiUrl: "http://l2-aws-game-api-sit-service:5000",
+        authUrl: "https://l2sitauth.sgamesuat.com",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -22,7 +22,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://lmn_backend:LmnBackend%40517@10.99.99.187:37301/?replicaSet=SabaL2SIT&appName=BandarQiuQiu",
+        url: "mongodb://lmn_backend:LmnBackend%40517@10.88.127.155:37301/?replicaSet=L2AWSsit&appName=BandarQiuQiu",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -30,12 +30,12 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://8ac47fca6d3e4a41908896a64ef201ac@10.2.190.51:9009/53",
+        sentryUrl: "http://8ac47fca6d3e4a41908896a64ef201ac@scsentry.sgamesuat.com/53",
         logIdentifier: "BandarQiuQiu",
         env: "SIT",
     },
     authenticateSettings: {
-        url: "http://l2_auth_api_sit:5000",
+        url: "https://l2sitauth.sgamesuat.com",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
@@ -43,7 +43,7 @@ export default {
         audiences: ["api", "admin-api"],
     },
     userServiceSettings: {
-        url: "http://l2_user_service_sit:5000",
+        url: "https://l2uatproxy.sgamesuat.com/sit/user",
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     metrics: {
@@ -51,4 +51,7 @@ export default {
         secretKey: "6c1f0f28-70f2-46ae-b031-22624a6cd8df",
     },
     enableMsgpackParser: true,
+    gameManagementApiSettings: {
+        BASE: "https://l2uatproxy.sgamesuat.com/sit/game-management-service",
+    },
 };
