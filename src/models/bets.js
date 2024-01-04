@@ -17,7 +17,7 @@ const bet = {
     siteId: { type: String },
     freeBet: { type: Boolean, default: false },
 
-    playerId: { type: Number },
+    playerId: { type: String },
     operatorId: { type: String },
     roundId: { type: Number, default: 0, required: true },
     paid: { type: Boolean, default: false },
@@ -34,3 +34,4 @@ const bets = mongoose.model(
 const tmpBets = mongoose.model("bandarqiuqiu_tmpbets", new mongoose.Schema(bet));
 
 export { bets, tmpBets };
+

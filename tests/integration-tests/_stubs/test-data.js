@@ -79,7 +79,7 @@ const userBetData = (uid) => {
             uid: uid,
             betwin: 0,
             currency: "$US",
-            playerId: 1,
+            playerId: "1",
             name: "NormalUser",
             odds: gameConfig.odds,
             operatorId: "dummy-operator-id",
@@ -98,7 +98,7 @@ const userBetData = (uid) => {
             uid: uid,
             betwin: 0,
             currency: "$US",
-            playerId: 1,
+            playerId: "1",
             name: "NormalUser",
             odd: 0,
             odds: gameConfig.odds,
@@ -121,7 +121,7 @@ const userBetLogData = (uid) => {
         {
             uid: uid,
             currency: "$US",
-            playerId: 1,
+            playerId: "1",
             name: "NormalUser",
             operatorId: "dummy-operator-id",
             choice: "spade",
@@ -133,7 +133,7 @@ const userBetLogData = (uid) => {
         {
             uid: uid,
             currency: "$US",
-            playerId: 1,
+            playerId: "1",
             name: "NormalUser",
             operatorId: "dummy-operator-id",
             choice: "heart",
@@ -145,7 +145,7 @@ const userBetLogData = (uid) => {
         {
             uid: uid,
             currency: "$US",
-            playerId: 1,
+            playerId: "1",
             name: "NormalUser",
             operatorId: "dummy-operator-id",
             choice: "club",
@@ -168,4 +168,5 @@ const promotions = [
     },
 ];
 
-export { game, currencyData, socketOptionsFunc, gameConfig, roundsData, userBetData, promotions, userBetLogData };
+export { currencyData, game, gameConfig, promotions, roundsData, socketOptionsFunc, userBetData, userBetLogData };
+
