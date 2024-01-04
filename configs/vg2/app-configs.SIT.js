@@ -30,9 +30,9 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://8ac47fca6d3e4a41908896a64ef201ac@scsentry.sgamesuat.com/53",
+        sentryUrl: "https://8ac47fca6d3e4a41908896a64ef201ac@scsentry.sgamesuat.com/53",
         logIdentifier: "BandarQiuQiu",
-        env: "SIT",
+        env: "AWS_SIT",
     },
     authenticateSettings: {
         url: "https://l2sitauth.sgamesuat.com",
