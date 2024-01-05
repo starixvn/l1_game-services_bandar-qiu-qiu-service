@@ -33,7 +33,7 @@ export default {
     sentry: {
         sentryUrl: "https://52368c4019044019885440599c180bda@scsentry.sgamesuat.com/24",
         logIdentifier: "BandarQiuQiu",
-        env: "UAT",
+        env: "AWS_UAT",
     },
     authenticateSettings: {
         url: "https://l1uatauth.sgamesuat.com",
