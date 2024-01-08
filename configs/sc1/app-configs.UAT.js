@@ -31,7 +31,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://136da1dee0608aeeb3e11ce439a6d758@sentry-eksuat.sportsfun.app/4",
+        sentryUrl: "http://136da1dee0608aeeb3e11ce439a6d758@sentry-nginx.sentry/4",
         logIdentifier: "BandarQiuQiu",
         env: "AWS_UAT",
     },
