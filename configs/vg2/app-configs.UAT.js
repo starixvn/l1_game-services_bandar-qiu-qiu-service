@@ -31,7 +31,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://136da1dee0608aeeb3e11ce439a6d758@sentry-nginx.sentry/4",
+        sentryUrl: "http://fb02b60de4de831e4633fbb4d8a5d26f@sentry-nginx.sentry/8",
         logIdentifier: "BandarQiuQiu",
         env: "AWS_UAT",
     },
