@@ -31,7 +31,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://28e720375a385a4fd51b28ee16e8e5d5@sentry-local-nginx.sentry/3",
+        sentryUrl: "http://28e720375a385a4fd51b28ee16e8e5d5@sentry-k8s.lumigame.com/3",
         logIdentifier: "BandarQiuQiu",
         env: "LOCAL_1",
     },
