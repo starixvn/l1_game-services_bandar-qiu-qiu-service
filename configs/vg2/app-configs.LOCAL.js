@@ -55,4 +55,9 @@ export default {
     gameManagementApiSettings: {
         BASE: "http://l2_game_management_service_local:5000",
     },
+    otel: {
+        system: "VG2",
+        enabled: true,
+        endpoint: "http://10.10.50.69:4318/v1/traces",
+    },
 };

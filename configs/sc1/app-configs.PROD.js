@@ -55,4 +55,9 @@ export default {
     gameManagementApiSettings: {
         BASE: "http://l1_game_management_service_prod:5000",
     },
+    otel: {
+        system: "SG",
+        enabled: true,
+        endpoint: "http://10.2.189.50:4318/v1/traces",
+    },
 };

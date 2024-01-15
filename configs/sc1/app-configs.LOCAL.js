@@ -58,6 +58,6 @@ export default {
     otel: {
         system: "SG",
         enabled: true,
-        endpoint: "https://jaeger-collector.lumigame.com/v1/traces",
+        endpoint: "http://10.10.50.69:4318/v1/traces",
     },
 };
