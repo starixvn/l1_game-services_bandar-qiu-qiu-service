@@ -55,7 +55,6 @@ export default {
     gameManagementApiSettings: {
         BASE: "http://l1_game_management_service_local_1:5000",
     },
-    disableCors: true,
     otel: {
         system: "SG",
         enabled: true,

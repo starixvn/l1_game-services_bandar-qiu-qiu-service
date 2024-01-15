@@ -30,7 +30,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://8ac47fca6d3e4a41908896a64ef201ac@10.2.190.51:9009/53",
+        sentryUrl: "http://8ac47fca6d3e4a41908896a64ef201ac@10.2.190.51:9009/53",
         logIdentifier: "BandarQiuQiu",
         env: "SIT",
     },
