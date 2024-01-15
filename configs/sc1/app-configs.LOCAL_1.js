@@ -3,7 +3,7 @@ export default {
     apiSettings: {
         enabledApi: true,
         apiUrl: "http://l1_game_api_local_1:5000",
-        authUrl: "https://l1-auth1.lumigame.com",
+        authUrl: "http://l1_auth_api_local_1:5000",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -36,7 +36,7 @@ export default {
         env: "LOCAL_1",
     },
     authenticateSettings: {
-        url: "https://l1-auth1.lumigame.com",
+        url: "http://l1_auth_api_local_1:5000",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
@@ -53,7 +53,7 @@ export default {
     },
     enableMsgpackParser: false,
     gameManagementApiSettings: {
-        BASE: "https://l1-proxy1.lumigame.com/game-management-service",
+        BASE: "http://l1_game_management_service_local_1:5000",
     },
     disableCors: true,
     otel: {
