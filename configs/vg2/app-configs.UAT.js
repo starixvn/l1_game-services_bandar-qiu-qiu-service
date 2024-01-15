@@ -33,7 +33,7 @@ export default {
     sentry: {
         sentryUrl: "http://8ac47fca6d3e4a41908896a64ef201ac@10.2.190.51:9009/53",
         logIdentifier: "BandarQiuQiu",
-        env: "AWS_UAT",
+        env: "UAT",
     },
     authenticateSettings: {
         url: "http://l2_auth_api_uat:5000",
