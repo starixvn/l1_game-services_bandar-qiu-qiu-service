@@ -6,3 +6,6 @@
 **/reports
 
 junit.xml
+
+# stryker temp files
+.stryker-tmp
