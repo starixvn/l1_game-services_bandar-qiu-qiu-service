@@ -6485,10 +6485,10 @@ sc-api-client@1.4.0:
   dependencies:
     axios "^0.19.2"
 
-sc-base-apis@1.18.2-beta.3:
-  version "1.18.2-beta.3"
-  resolved "http://npm.lumigame.com/sc-base-apis/-/sc-base-apis-1.18.2-beta.3.tgz#acba203a63e54a9260f3e60af83e32f7bd54dc39"
-  integrity sha512-h/IRZNId5rrWp+meWIxNqVXov5a9KNtO2nu+P6kCsQOKxDTgU1YkYhw4gi1GUrDaIcMpu+NrQnLdIGZdwmhnIQ==
+sc-base-apis@2.0.0:
+  version "2.0.0"
+  resolved "http://npm.lumigame.com/sc-base-apis/-/sc-base-apis-2.0.0.tgz#00b85b6b2fbef2d25877e5276a17bd47efda2c2c"
+  integrity sha512-f9UX4fuKkAW5hRY5V7aHvKTerdo7dYsnR0TcuDT4brTLuEphLFfOYakQ9414gu6/EI17qaRLvxyJhkJ5x8E9rw==
   dependencies:
     moment "^2.29.4"
     sc-api-client "1.4.0"
@@ -6513,10 +6513,10 @@ sc-common@1.8.1:
     mongoose-long "^0.3.0"
     numeral "^2.0.6"
 
-sc-game-base@4.1.0, sc-game-base@4.1.1-beta.19, sc-game-base@4.1.1-beta.50:
-  version "4.1.1-beta.50"
-  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-4.1.1-beta.50.tgz#e66040af752854c73490f6926ed2c0161fb1b94a"
-  integrity sha512-mz3R/lAElwECuNCfCBvHVUyIsI5WpPvZZTwYd4P8s4MRl9kLUZajUcdiKw7dQDxZ33uLfGdVyQZYhB9GRNB9VA==
+sc-game-base@4.1.0, sc-game-base@5.0.0:
+  version "5.0.0"
+  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.0.0.tgz#f4051db11140bf6478ec868b9fc4a1f51d267e5f"
+  integrity sha512-ldUaY6w0TmSJ8+WOqq088zPxDpsRa6ErPW/BlWwnTTWGd3/vFJg0GSN6G/j88LV82uv2FPcG9T+aakq3mRGirg==
   dependencies:
     awilix "^8.0.0"
     axios "^1.0.0"
@@ -6529,32 +6529,32 @@ sc-game-base@4.1.0, sc-game-base@4.1.1-beta.19, sc-game-base@4.1.1-beta.50:
     mongoose "^5.9.25"
     morgan "^1.10.0"
     openid-client "^5.0.0"
-    sc-base-apis "1.18.2-beta.3"
+    sc-base-apis "2.0.0"
     sc-base-database "1.11.1"
     sc-common "1.8.1"
-    sc-game-management-client "^0.0.2-beta.20"
+    sc-game-management-client "^0.0.2-beta.22"
     sc-instrument "1.1.1-beta.2"
     sc-instrument-helper "1.0.0"
     socket.io "^4.5.4"
     socket.io-msgpack-parser "^3.0.1"
     socket.io-prom-metrics "^1.0.3"
 
-sc-game-management-client@^0.0.2-beta.20:
-  version "0.0.2-beta.20"
-  resolved "http://npm.lumigame.com/sc-game-management-client/-/sc-game-management-client-0.0.2-beta.20.tgz#5190de9636c133fca37d14146c97e74dcc943520"
-  integrity sha512-vTgS9bU8NMs2pmbEVC8k+90S1is4LClQLStQwPRAzbIy4Ogtc6Rdkhj3t4zTS+wWa9AnKwXYBjWyWKjPFbWUBg==
+sc-game-management-client@^0.0.2-beta.22:
+  version "0.0.2-beta.22"
+  resolved "http://npm.lumigame.com/sc-game-management-client/-/sc-game-management-client-0.0.2-beta.22.tgz#3bf20fd2b3b0ec12b65b385e3a65da69ba7c8609"
+  integrity sha512-BLdDwZzAZFvPQEoMu+CN9Hhi+puNXxUIC+4HNj3u3MHhzkrSHUaCOl7Api2kZQB/eSIKByTx67hZX/GIuQQlwQ==
   dependencies:
     axios "1.6.2"
     axios-retry "^4.0.0"
 
-sc-game-service-integration-utils@^1.3.8-beta.1:
-  version "1.3.8-beta.1"
-  resolved "http://npm.lumigame.com/sc-game-service-integration-utils/-/sc-game-service-integration-utils-1.3.8-beta.1.tgz#1e84140d491ae34a8cf65f24dcda7c3ba02f4c85"
-  integrity sha512-gP/L9urMdoR+U4skkl/5q3IjznaD/Qg8d+McwIElgAjnGDqt7KXxfXvZfea0LPK06AqN1A59H5OIOcF9ZeG6jA==
+sc-game-service-integration-utils@2.0.0:
+  version "2.0.0"
+  resolved "https://npm.lumigame.com/sc-game-service-integration-utils/-/sc-game-service-integration-utils-2.0.0.tgz#14fa0fafead68be98fd51b4b8f49048f5b50d07f"
+  integrity sha512-jlKvrPibGyYXMYTjnxZHZJQ0GoDA3odeE/sIoocTHi6pm/NlF+u+tEw1ElTWJJCiEpr+0Kj0VYytrc/BzlTTHg==
   dependencies:
     lodash.matches "^4.6.0"
     nock "^13.2.1"
-    sc-game-base "4.1.1-beta.19"
+    sc-game-base "5.0.0"
     socket.io-client "^4.4.0"
 
 sc-instrument-helper@1.0.0:
@@ -6586,10 +6586,10 @@ sc-instrument@1.1.1-beta.2:
     opentelemetry-instrumentation-socket.io "0.34.0"
     socket.io "4.6.1"
 
-sc-rebet-mode@2.0.1-beta.0:
-  version "2.0.1-beta.0"
-  resolved "http://npm.lumigame.com/sc-rebet-mode/-/sc-rebet-mode-2.0.1-beta.0.tgz#ee2580e609eb265fddabd4a38bb1445d592a8a1c"
-  integrity sha512-NxyHiKYBIqFfLbnSQaJbkUIkp6wev3nbcp5AsNEf9fkzmyXgHUjHuwb5hjJKpBJmN/MvTKgiIXk8gTX29llcsg==
+sc-rebet-mode@2.0.1:
+  version "2.0.1"
+  resolved "http://npm.lumigame.com/sc-rebet-mode/-/sc-rebet-mode-2.0.1.tgz#845d123803a021756ed8748194fa81ae26fa9485"
+  integrity sha512-8wQ7+JXly91a8D79WGdWUY3LL8RlXm/ZaD91eWYQrUmE/peUuaPPwdMw86dHieOc3YKQEsa70sb4AE7t7uqVFg==
   dependencies:
     sc-game-base "4.1.0"
 
