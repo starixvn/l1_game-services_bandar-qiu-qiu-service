@@ -68,8 +68,7 @@
         "sc-semantic-release": "^1.1.0",
         "semantic-release": "^17.1.1",
         "stryker-babel-transpiler": "^0.10.1",
-        "stryker-javascript-mutator": "^0.14.1",
-        "whatwg-fetch": "^3.6.20"
+        "stryker-javascript-mutator": "^0.14.1"
     },
     "husky": {
         "hooks": {
