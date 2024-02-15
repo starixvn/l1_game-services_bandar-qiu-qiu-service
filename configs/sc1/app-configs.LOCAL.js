@@ -53,7 +53,7 @@ export default {
     },
     enableMsgpackParser: false,
     gameManagementApiSettings: {
-        BASE: "http://l1_game_management_service_local:5000",
+        BASE: "http://l1-game-management-service-local-service:5000",
     },
     otel: {
         system: "SG",
