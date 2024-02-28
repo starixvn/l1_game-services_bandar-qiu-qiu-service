@@ -38,8 +38,7 @@
         "sc-rebet-mode": "2.0.1"
     },
     "resolutions": {
-        "sc-game-base": "5.0.0",
-        "sc-base-apis": "1.18.2"
+        "sc-game-base": "5.0.0"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.12.11",
