@@ -38,7 +38,10 @@
         "sc-rebet-mode": "2.0.1"
     },
     "resolutions": {
-        "sc-game-base": "5.0.0"
+        "sc-game-base": "5.0.0",
+        "socket.io-parser": "4.0.5",
+        "mongoose": "5.13.20",
+        "minimist": "1.2.6"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.12.11",
