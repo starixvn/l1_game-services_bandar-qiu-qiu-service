@@ -2622,6 +2622,11 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chance@^1.1.11:
+  version "1.1.13"
+  resolved "http://npm.lumigame.com/chance/-/chance-1.1.13.tgz#d4ecfd20c5e6799aaf5c2270d7653b32385cd6e3"
+  integrity sha512-V6lQCljcLznE7tUYUM9EOAnnKXbctE6j/rdQkYOHIWbfGQbrzTsAXNW9CdU5XCo4ArXQCj/rb6HgxPlmGJcaUg==
+
 chance@^1.1.7:
   version "1.1.7"
   resolved "http://npm.lumigame.com/chance/-/chance-1.1.7.tgz"
@@ -2947,6 +2952,18 @@ crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "http://npm.lumigame.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
+
+crypto-random-string@^5.0.0:
+  version "5.0.0"
+  resolved "http://npm.lumigame.com/crypto-random-string/-/crypto-random-string-5.0.0.tgz#12b4ca8ba936c36d757b65b71a7d85a69a02c18a"
+  integrity sha512-KWjTXWwxFd6a94m5CdRGW/t82Tr8DoBc9dNnPCAbFI1EBweN6v1tv8y4Y1m7ndkp/nkIBRxUxAzpaBnR2k3bcQ==
+  dependencies:
+    type-fest "^2.12.2"
+
+crypto@^1.0.1:
+  version "1.0.1"
+  resolved "http://npm.lumigame.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
+  integrity sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==
 
 cssom@^0.4.4:
   version "0.4.4"
@@ -5510,6 +5527,11 @@ ms@2.1.2, ms@^2.1.1, ms@^2.1.2:
   resolved "http://npm.lumigame.com/ms/-/ms-2.1.2.tgz"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+nanoid@^5.0.5:
+  version "5.1.6"
+  resolved "http://npm.lumigame.com/nanoid/-/nanoid-5.1.6.tgz#30363f664797e7d40429f6c16946d6bd7a3f26c9"
+  integrity sha512-c7+7RQ+dMB5dPwwCp4ee1/iV/q2P6aK1mTZcfr1BTuVlyW9hJYiMPybJCcnBlQtuSmTIWNeazm/zqNoZSSElBg==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "http://npm.lumigame.com/nanomatch/-/nanomatch-1.2.13.tgz"
@@ -6144,6 +6166,20 @@ random@^3.0.6:
   dependencies:
     seedrandom "^3.0.5"
 
+randombytes@2.1.0:
+  version "2.1.0"
+  resolved "http://npm.lumigame.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
+  integrity sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==
+  dependencies:
+    safe-buffer "^5.1.0"
+
+randomstring@^1.3.0:
+  version "1.3.1"
+  resolved "http://npm.lumigame.com/randomstring/-/randomstring-1.3.1.tgz#11a494a9d51b320dd8694a3e0ee7d77b0f8e477c"
+  integrity sha512-lgXZa80MUkjWdE7g2+PZ1xDLzc7/RokXVEQOv5NN2UOTChW1I8A9gha5a9xYBOqgaSoI6uJikDmCU8PyRdArRQ==
+  dependencies:
+    randombytes "2.1.0"
+
 range-parser@~1.2.1:
   version "1.2.1"
   resolved "http://npm.lumigame.com/range-parser/-/range-parser-1.2.1.tgz"
@@ -6443,9 +6479,9 @@ safe-buffer@5.1.2, safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@^5.1.2, s
   resolved "http://npm.lumigame.com/safe-buffer/-/safe-buffer-5.1.2.tgz"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
-safe-buffer@5.2.1:
+safe-buffer@5.2.1, safe-buffer@^5.1.0:
   version "5.2.1"
-  resolved "http://npm.lumigame.com/safe-buffer/-/safe-buffer-5.2.1.tgz"
+  resolved "http://npm.lumigame.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
 safe-regex@^1.1.0:
@@ -6505,10 +6541,10 @@ sc-base-apis@2.0.0:
     sc-api-client "1.4.0"
     sc-common "1.8.1"
 
-sc-base-database@1.11.1:
-  version "1.11.1"
-  resolved "http://npm.lumigame.com/sc-base-database/-/sc-base-database-1.11.1.tgz#25d850e83b4e07f7e6e26f3d2d1eecc11145c2cf"
-  integrity sha512-DxuFRNDDSHQglSGFsXnrcDXVs+BRxSiILBNRbJ5RistCcSbs+k7QiwYMGhCSv3FOz9J/On9jh2y3MNst/he2BA==
+sc-base-database@2.2.2:
+  version "2.2.2"
+  resolved "http://npm.lumigame.com/sc-base-database/-/sc-base-database-2.2.2.tgz#ed3af98616c88bac05597ca8a5e39ce2abf2d8eb"
+  integrity sha512-RnjbBIAyhfHDryS4E+OkR7rtjURG8bLYkF39/0bEzvG01qiESLM5zdQ6mcnDkMI5/FFt8lNmI7vkoQo3waIjHQ==
   dependencies:
     mongoose "^5.9.25"
     sc-common "1.8.1"
@@ -6524,48 +6560,54 @@ sc-common@1.8.1:
     mongoose-long "^0.3.0"
     numeral "^2.0.6"
 
-sc-game-base@4.1.0, sc-game-base@5.0.0:
-  version "5.0.0"
-  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.0.0.tgz#f4051db11140bf6478ec868b9fc4a1f51d267e5f"
-  integrity sha512-ldUaY6w0TmSJ8+WOqq088zPxDpsRa6ErPW/BlWwnTTWGd3/vFJg0GSN6G/j88LV82uv2FPcG9T+aakq3mRGirg==
+sc-game-base@4.1.0, sc-game-base@5.4.0:
+  version "5.4.0"
+  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.4.0.tgz#46203fc17ae5a82fbd0a8160d422e17d74f60bca"
+  integrity sha512-yEA2KNWrXgn1Heu47J+Ie9fr3Bmw1+R2meARPXl7QaU1i//s90qCAV1hBP2y2dqOuvaZQ59ndXikum7CvXJC+g==
   dependencies:
     awilix "^8.0.0"
     axios "^1.0.0"
     chance "^1.1.7"
     cors "^2.8.5"
     cron "^2.0.0"
+    crypto "^1.0.1"
+    crypto-random-string "^5.0.0"
     express "^4.17.1"
     helmet "^6.0.0"
     lodash "^4.17.19"
     mongoose "^5.9.25"
     morgan "^1.10.0"
+    nanoid "^5.0.5"
     openid-client "^5.0.0"
+    prom-client "^11.2.1"
+    random-js "^2.1.0"
+    randomstring "^1.3.0"
     sc-base-apis "2.0.0"
-    sc-base-database "1.11.1"
     sc-common "1.8.1"
-    sc-game-management-client "^0.0.2-beta.22"
+    sc-game-management-client "^0.1.0"
     sc-instrument "1.1.1-beta.2"
     sc-instrument-helper "1.0.0"
+    sc-pf-client-seed "^1.0.5"
     socket.io "^4.5.4"
     socket.io-msgpack-parser "^3.0.1"
     socket.io-prom-metrics "^1.0.3"
 
-sc-game-management-client@^0.0.2-beta.22:
-  version "0.0.2-beta.22"
-  resolved "http://npm.lumigame.com/sc-game-management-client/-/sc-game-management-client-0.0.2-beta.22.tgz#3bf20fd2b3b0ec12b65b385e3a65da69ba7c8609"
-  integrity sha512-BLdDwZzAZFvPQEoMu+CN9Hhi+puNXxUIC+4HNj3u3MHhzkrSHUaCOl7Api2kZQB/eSIKByTx67hZX/GIuQQlwQ==
+sc-game-management-client@^0.1.0:
+  version "0.1.6"
+  resolved "http://npm.lumigame.com/sc-game-management-client/-/sc-game-management-client-0.1.6.tgz#6a8d1a8c85b1344ce6ad8c587e4c12c88981f85c"
+  integrity sha512-6DBHFlWrebaAqtsneo1aG04gycLdDHr9IcZAux65zma4pmRXnfJE8LW4Gvb2ELV1lPAa3MWFIoGKFNbGxciFkg==
   dependencies:
     axios "1.6.2"
     axios-retry "^4.0.0"
 
-sc-game-service-integration-utils@2.0.0:
-  version "2.0.0"
-  resolved "https://npm.lumigame.com/sc-game-service-integration-utils/-/sc-game-service-integration-utils-2.0.0.tgz#14fa0fafead68be98fd51b4b8f49048f5b50d07f"
-  integrity sha512-jlKvrPibGyYXMYTjnxZHZJQ0GoDA3odeE/sIoocTHi6pm/NlF+u+tEw1ElTWJJCiEpr+0Kj0VYytrc/BzlTTHg==
+sc-game-service-integration-utils@2.3.1:
+  version "2.3.1"
+  resolved "http://npm.lumigame.com/sc-game-service-integration-utils/-/sc-game-service-integration-utils-2.3.1.tgz#e0c0a148378c4d217f71999dd426e0dd03de8335"
+  integrity sha512-8l8kcmTnW6KGunPMPdo9Zdxd50/JJ3cWnUY+MLaQsfUsz1sRpz+ayFO/Ma5XHNJ5yBeMbFyKhul40E+oYAcvLA==
   dependencies:
     lodash.matches "^4.6.0"
     nock "^13.2.1"
-    sc-game-base "5.0.0"
+    sc-base-database "2.2.2"
     socket.io-client "^4.4.0"
 
 sc-instrument-helper@1.0.0:
@@ -6596,6 +6638,13 @@ sc-instrument@1.1.1-beta.2:
     "@opentelemetry/semantic-conventions" "1.15.2"
     opentelemetry-instrumentation-socket.io "0.34.0"
     socket.io "4.6.1"
+
+sc-pf-client-seed@^1.0.5:
+  version "1.0.5"
+  resolved "http://npm.lumigame.com/sc-pf-client-seed/-/sc-pf-client-seed-1.0.5.tgz#8ce5fd5a5482d1cd9f803560bc3acc4e89e83d70"
+  integrity sha512-KRkuLgqs508IvsSCR381esnKgEK2vid0JwE4Vom9XpJBlNBSjov+6bITO8FlX8W5Hss2Xe1pX6wCvFJVrhZvvg==
+  dependencies:
+    chance "^1.1.11"
 
 sc-rebet-mode@2.0.1:
   version "2.0.1"
@@ -7346,6 +7395,11 @@ type-fest@^0.8.1:
   version "0.8.1"
   resolved "http://npm.lumigame.com/type-fest/-/type-fest-0.8.1.tgz"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
+
+type-fest@^2.12.2:
+  version "2.19.0"
+  resolved "http://npm.lumigame.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
+  integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
