@@ -6524,7 +6524,7 @@ sc-common@1.8.1:
     mongoose-long "^0.3.0"
     numeral "^2.0.6"
 
-sc-game-base@4.1.0, sc-game-base@5.0.0:
+sc-game-base@5.0.0, sc-game-base@5.3.0:
   version "5.0.0"
   resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.0.0.tgz#f4051db11140bf6478ec868b9fc4a1f51d267e5f"
   integrity sha512-ldUaY6w0TmSJ8+WOqq088zPxDpsRa6ErPW/BlWwnTTWGd3/vFJg0GSN6G/j88LV82uv2FPcG9T+aakq3mRGirg==
@@ -6597,12 +6597,12 @@ sc-instrument@1.1.1-beta.2:
     opentelemetry-instrumentation-socket.io "0.34.0"
     socket.io "4.6.1"
 
-sc-rebet-mode@2.0.1:
-  version "2.0.1"
-  resolved "http://npm.lumigame.com/sc-rebet-mode/-/sc-rebet-mode-2.0.1.tgz#845d123803a021756ed8748194fa81ae26fa9485"
-  integrity sha512-8wQ7+JXly91a8D79WGdWUY3LL8RlXm/ZaD91eWYQrUmE/peUuaPPwdMw86dHieOc3YKQEsa70sb4AE7t7uqVFg==
+sc-rebet-mode@3.0.0:
+  version "3.0.0"
+  resolved "http://npm.lumigame.com/sc-rebet-mode/-/sc-rebet-mode-3.0.0.tgz#0bfebabf163cbcc816ffb9e32dd23a9148bb28f8"
+  integrity sha512-2+L+tX1icI/ctQlBUbQFEo7OvJRX8y6+7+HkhDTCkZAoeCt1QoInpRvUCDcyYmjo0iFeOjcR7kKAm/yrQns9aw==
   dependencies:
-    sc-game-base "4.1.0"
+    sc-game-base "5.3.0"
 
 seedrandom@^3.0.5:
   version "3.0.5"
